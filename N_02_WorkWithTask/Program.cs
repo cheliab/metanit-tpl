@@ -15,6 +15,10 @@ class Program
         
         // ArrayOfTask();
         // ArrayOfTask_FactoryExample();
+        // ArrayOfTask_ForExample();
+        // ArrayOfTask_WaitAll();
+        
+        TaskResult();
     }
 
     /// <summary>
@@ -123,7 +127,7 @@ class Program
     /// <summary>
     /// Ждем завершения всех задач в массиве
     /// </summary>
-    private static void ArrayOfTask_WailAll()
+    private static void ArrayOfTask_WaitAll()
     {
         Task[] tasks = new Task[3];
         for (int i = 0; i < tasks.Length; i++)
@@ -141,4 +145,22 @@ class Program
 
         Console.WriteLine("End of Main");
     }
+
+    /// <summary>
+    /// Результат задачи
+    /// </summary>
+    private static void TaskResult()
+    {
+        // Числа для сложения
+        int n1 = 4, n2 = 5;
+        
+        // Task<int> - int тип возвращаемого задачей результата
+        Task<int> sumTask = new Task<int>(() => Sum(n1, n2));
+        sumTask.Start();
+
+        int result = sumTask.Result;
+        Console.WriteLine($"{n1} + {n2} = {result}"); // 4 + 5 = 9
+    }
+
+    private static int Sum(int a, int b) => a + b;
 } 
