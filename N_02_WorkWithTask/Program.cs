@@ -1,4 +1,6 @@
-﻿namespace N_02_WorkWithTask;
+﻿using System.Threading.Channels;
+
+namespace N_02_WorkWithTask;
 
 // https://metanit.com/sharp/tutorial/12.2.php
 // 
@@ -97,6 +99,46 @@ class Program
         
         // так же без ожидания
     }
-    
-    
+
+    /// <summary>
+    /// Пример с использованием цикла for
+    /// </summary>
+    private static void ArrayOfTask_ForExample()
+    {
+        Task[] tasks = new Task[3];
+        for (var i = 0; i < tasks.Length; i++)
+        {
+            tasks[i] = new Task(() =>
+            {
+                Console.WriteLine("start");
+                Thread.Sleep(1000);
+                Console.WriteLine("end");
+            });
+            tasks[i].Start();
+        }
+
+        Console.WriteLine("end od main");
+    }
+
+    /// <summary>
+    /// Ждем завершения всех задач в массиве
+    /// </summary>
+    private static void ArrayOfTask_WailAll()
+    {
+        Task[] tasks = new Task[3];
+        for (int i = 0; i < tasks.Length; i++)
+        {
+            tasks[i] = new Task(() =>
+            {
+                Thread.Sleep(1000);
+                Console.WriteLine($"Task{i} finished");
+            });
+            tasks[i].Start();
+        }
+
+        // Ждем пока все задачи завершатся (только потом продолжаем)
+        Task.WaitAll(tasks);
+
+        Console.WriteLine("End of Main");
+    }
 } 
