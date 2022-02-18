@@ -18,7 +18,8 @@ class Program
         // ArrayOfTask_ForExample();
         // ArrayOfTask_WaitAll();
         
-        TaskResult();
+        // TaskResult();
+        TaskResult_UseClass();
     }
 
     /// <summary>
@@ -154,7 +155,7 @@ class Program
         // Числа для сложения
         int n1 = 4, n2 = 5;
         
-        // Task<int> - int тип возвращаемого задачей результата
+        // <int> - тип возвращаемого задачей результата
         Task<int> sumTask = new Task<int>(() => Sum(n1, n2));
         sumTask.Start();
 
@@ -163,4 +164,19 @@ class Program
     }
 
     private static int Sum(int a, int b) => a + b;
+
+    /// <summary>
+    /// Возвращение результата задачей - Использование класса в результате
+    /// </summary>
+    private static void TaskResult_UseClass()
+    {
+        // <Person> - Тип результата задачи
+        Task<Person> defaultPersonTask = new Task<Person>(() => new Person("Tom", 37));
+        defaultPersonTask.Start();
+
+        Person defaultPerson = defaultPersonTask.Result;
+        Console.WriteLine($"{defaultPerson.Name} - {defaultPerson.Age}"); // Tom - 37
+    }
+
+    record Person(string Name, int Age);
 } 
