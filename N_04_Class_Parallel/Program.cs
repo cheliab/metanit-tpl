@@ -1,10 +1,16 @@
 ﻿namespace N_04_Class_Parallel;
 
+// https://metanit.com/sharp/tutorial/12.4.php
+//
+// Класс Parallel
+
 class Program 
 {
     public static void Main()
     {
-        UseParallelInvoke();
+        // UseParallelInvoke();
+        
+        Parallel_For_Example.Start();
     }
 
     /// <summary>
