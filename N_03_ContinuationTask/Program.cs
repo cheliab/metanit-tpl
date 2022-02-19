@@ -8,7 +8,9 @@ class Program
 {
     public static void Main()
     {
-        Task_ContinueWith();
+        // Task_ContinueWith();
+        // ContinueWith_WithResultParam();
+        TaskChain();
     }
 
     /// <summary>
@@ -42,5 +44,48 @@ class Program
     {
         Console.WriteLine($"Id задачи: {Task.CurrentId}");
         Console.WriteLine($"Id предыдущей задачи: {previousTask.Id}");
+    }
+
+    /// <summary>
+    /// Передача результата как параметра следующей задачи
+    /// </summary>
+    private static void ContinueWith_WithResultParam()
+    {
+        // Первая задача
+        Task<int> sumTask = new Task<int>(() => Sum(4, 5));
+
+        // Задача продолжения
+        Task printTask = sumTask.ContinueWith(task => PrintResult(task.Result));
+        
+        sumTask.Start();
+
+        // ждем окончания второй задачи
+        printTask.Wait();
+
+        Console.WriteLine("Конец Main");
+    }
+
+    // метод выполняет расчеты
+    private static int Sum(int a, int b) => a + b;
+    // метод принимает результат расчетов
+    private static void PrintResult(int sum) => Console.WriteLine($"Sum: {sum}");
+
+    private static void TaskChain()
+    {
+        Task task1 = new Task(() => Console.WriteLine($"Current Task: {Task.CurrentId}"));
+
+        Task task2 = task1.ContinueWith(t => Console.WriteLine($"Current Task: {Task.CurrentId} Previous Task: {t.Id}"));
+
+        Task task3 = task2.ContinueWith(t => Console.WriteLine($"Current Task: {Task.CurrentId} Previous Task: {t.Id}"));
+
+        Task task4 = task3.ContinueWith(t => Console.WriteLine($"Current Task: {Task.CurrentId} Previous Task: {t.Id}"));
+        
+        // Запускаем первую задачу
+        task1.Start();
+
+        // Ждем последнюю задачу
+        task4.Wait();
+
+        Console.WriteLine("Конец Main");
     }
 }
