@@ -8,6 +8,7 @@ class Program
 {
     public static void Main()
     {
-        SoftExitFromTask_WithoutException.Start();
+        // SoftExitFromTask_WithoutException.Start();
+        ExitFromTask_GenerateException.Start();
     }
 } 
