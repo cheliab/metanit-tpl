@@ -1,13 +1,15 @@
 ﻿namespace N_04_Class_Parallel;
 
 /// <summary>
-/// Пример использования Parallel.For
+/// Пример использования Parallel.ForEach
 /// </summary>
-public class Parallel_For_Example
+public class Parallel_ForEach_Example
 {
     public static void Start()
     {
-        Parallel.For(1, 5, Square);
+        List<int> intList = new List<int> { 1, 3, 5, 8 };
+
+        ParallelLoopResult result = Parallel.ForEach<int>(intList, Square);
     }
 
     private static void Square(int n)
@@ -17,6 +19,5 @@ public class Parallel_For_Example
         Thread.Sleep(3000);
         
         Console.WriteLine($"Квадрат числа {n} равен {n * n}");
-        
     }
 }
