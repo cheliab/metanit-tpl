@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N_03_ContinuationTask", "N_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N_04_Class_Parallel", "N_04_Class_Parallel\N_04_Class_Parallel.csproj", "{432F7EA4-9E33-4C16-BBCB-091A963AA80A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "N_05_CancellationToken", "N_05_CancellationToken\N_05_CancellationToken.csproj", "{BB6ACC65-8DE0-4A0D-8187-788693D2A0DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{432F7EA4-9E33-4C16-BBCB-091A963AA80A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{432F7EA4-9E33-4C16-BBCB-091A963AA80A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{432F7EA4-9E33-4C16-BBCB-091A963AA80A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB6ACC65-8DE0-4A0D-8187-788693D2A0DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB6ACC65-8DE0-4A0D-8187-788693D2A0DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB6ACC65-8DE0-4A0D-8187-788693D2A0DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB6ACC65-8DE0-4A0D-8187-788693D2A0DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
