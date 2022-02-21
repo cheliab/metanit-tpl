@@ -3,7 +3,7 @@
 /// <summary>
 /// Пример отмены задачи с помощью генерации исключения
 /// </summary>
-public class ExitFromTask_GenerateException
+public class CancelFromTask_GenerateException
 {
     public static void Start()
     {

@@ -3,7 +3,7 @@
 /// <summary>
 /// Регистрация обработчика отмены задачи
 /// </summary>
-public class ExitFromTask_RegisterCancelHandler
+public class CancelFromTask_RegisterCancelHandler
 {
     public static void Start()
     {

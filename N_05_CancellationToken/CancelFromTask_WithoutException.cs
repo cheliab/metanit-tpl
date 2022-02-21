@@ -3,7 +3,7 @@
 /// <summary>
 /// Пример "мягкого" выхода из задачи, без исключения OperationCanceledException
 /// </summary>
-public class SoftExitFromTask_WithoutException
+public class CancelFromTask_WithoutException
 {
     public static void Start()
     {
