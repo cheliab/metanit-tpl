@@ -1,5 +1,8 @@
 ﻿namespace N_05_CancellationToken;
 
+/// <summary>
+/// Отмена параллельных операций Parallel
+/// </summary>
 public class UseTokenWithParallelClass
 {
     public static void Start()
@@ -16,6 +19,10 @@ public class UseTokenWithParallelClass
         try
         {
             Parallel.ForEach(new List<int> {1, 2, 3, 4, 5}, new ParallelOptions {CancellationToken = token}, Square);
+            
+            // или
+
+            // Parallel.For(1, 5, new ParallelOptions {CancellationToken = token}, Square);
         }
         catch (OperationCanceledException e)
         {
